@@ -6,13 +6,13 @@ are currently needed. Commands run in a terminal from the repository root.
 
 ## Download the examples
 
-Open <https://github.com/GeorgeWebDevCy/python-book-examples>, select **Code →
+Open <https://github.com/GeorgeWebDevCy/practical-python-from-the-first-line-examples>, select **Code →
 Download ZIP**, extract it and open a terminal in the extracted folder.
 Alternatively, if Git is installed:
 
 ```console
-git clone https://github.com/GeorgeWebDevCy/python-book-examples.git
-cd python-book-examples
+git clone https://github.com/GeorgeWebDevCy/practical-python-from-the-first-line-examples.git
+cd practical-python-from-the-first-line-examples
 ```
 
 ## Windows — PowerShell

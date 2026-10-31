@@ -2,6 +2,7 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from threading import Event
+import gc
 import tkinter as tk
 import unittest
 from unittest.mock import patch
@@ -27,6 +28,10 @@ class DesktopTests(unittest.TestCase):
         except tk.TclError:
             pass
         self.directory.cleanup()
+        # Collect Tk reference cycles on their owning thread before later
+        # tests start HTTP threads, which may otherwise trigger cyclic GC.
+        self.root = None
+        gc.collect()
 
     def test_first_window_button_changes_the_real_label_variable(self):
         message, button = build_window(self.root)

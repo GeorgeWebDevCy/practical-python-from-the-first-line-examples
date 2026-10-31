@@ -119,10 +119,11 @@ class PlanningAssistant(ttk.Frame):
         self.status.set(
             "Preparing suggestions. Your local requests have not changed."
         )
+        provider, results = self.provider, self.results
 
         def work():
             try:
-                tasks = validate_plan({"tasks": self.provider(goal)})
+                tasks = validate_plan({"tasks": provider(goal)})
                 result = (generation, tasks, None)
             except PlannerError as error:
                 result = (generation, None, str(error))
@@ -132,7 +133,7 @@ class PlanningAssistant(ttk.Frame):
                     None,
                     "Suggestion request failed. No local requests were changed.",
                 )
-            self.results.put(result)
+            results.put(result)
 
         self.worker = Thread(target=work, daemon=True)
         self.worker.start()
@@ -214,7 +215,7 @@ def main():
     )
     args = parser.parse_args()
     root = tk.Tk()
-    root.title("Python Book | Task planning assistant")
+    root.title("Practical Python | Task planning assistant")
     root.minsize(880, 740)
     root.columnconfigure(0, weight=1)
     root.rowconfigure(0, weight=1)

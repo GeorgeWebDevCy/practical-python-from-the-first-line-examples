@@ -114,7 +114,7 @@ def main():
     if args.seconds <= 0:
         parser.error("--seconds must be positive")
     root = tk.Tk()
-    root.title("Python Book | Focus timer")
+    root.title("Practical Python | Focus timer")
     root.minsize(520, 320)
     root.columnconfigure(0, weight=1)
     root.rowconfigure(0, weight=1)

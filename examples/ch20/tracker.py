@@ -150,7 +150,7 @@ def main():
     parser.add_argument("--data", type=Path, default=Path("requests.json"))
     args = parser.parse_args()
     root = tk.Tk()
-    root.title("Python Book | Desktop request tracker")
+    root.title("Practical Python | Desktop request tracker")
     root.minsize(760, 480)
     root.columnconfigure(0, weight=1)
     root.rowconfigure(0, weight=1)
