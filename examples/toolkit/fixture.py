@@ -1,4 +1,5 @@
 """Controlled loopback JSON service for Chapter 16. Not a public API."""
+
 import argparse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
@@ -24,8 +25,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--port", type=int, default=8765)
     args = parser.parse_args()
-    with ThreadingHTTPServer(("127.0.0.1", args.port), FixtureHandler) as server:
-        print(f"Fixture: http://127.0.0.1:{server.server_port}/sessions", flush=True)
+    with ThreadingHTTPServer(
+        ("127.0.0.1", args.port), FixtureHandler
+    ) as server:
+        print(
+            f"Fixture: http://127.0.0.1:{server.server_port}/sessions",
+            flush=True,
+        )
         try:
             server.serve_forever()
         except KeyboardInterrupt:

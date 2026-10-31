@@ -21,7 +21,10 @@ def fetch_sessions(url):
     for record in records:
         if not isinstance(record, dict):
             raise ValueError("Invalid session record")
-        if not isinstance(record.get("topic"), str) or not record["topic"].strip():
+        if (
+            not isinstance(record.get("topic"), str)
+            or not record["topic"].strip()
+        ):
             raise ValueError("Session topic is required")
         if type(record.get("minutes")) is not int or record["minutes"] < 0:
             raise ValueError("Session minutes must be nonnegative integers")
@@ -29,7 +32,9 @@ def fetch_sessions(url):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Read sessions from an HTTP service")
+    parser = argparse.ArgumentParser(
+        description="Read sessions from an HTTP service"
+    )
     parser.add_argument("url")
     args = parser.parse_args()
     try:

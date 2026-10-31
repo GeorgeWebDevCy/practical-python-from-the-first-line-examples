@@ -17,12 +17,19 @@ jobs:
           python-version: ${{ matrix.python }}
       - name: Create an isolated environment
         run: python -m venv .venv
+      - name: Provide a virtual display for real Tk widget tests
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb xauth tk
       - name: Run examples and tests in the environment
         shell: python
         run: |
           from pathlib import Path
           import os
           import subprocess
+          import sys
           interpreter = Path('.venv') / ('Scripts/python.exe' if os.name == 'nt' else 'bin/python')
           subprocess.run([str(interpreter.resolve()), '-m', 'examples.hello'], check=True)
-          subprocess.run([str(interpreter.resolve()), '-m', 'unittest', 'discover', '-s', 'tests', '-v'], check=True)
+          prefix = ['xvfb-run', '-a'] if sys.platform == 'linux' else []
+          subprocess.run(prefix + [str(interpreter.resolve()), '-m', 'unittest', 'discover', '-s', 'tests', '-v'], check=True)

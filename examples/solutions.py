@@ -3,6 +3,7 @@
 Functions collect solutions in one testable place; early exercises can be
 written as straight-line scripts before functions are introduced in Chapter 7.
 """
+
 import csv
 from datetime import date
 from html import escape
@@ -35,13 +36,20 @@ def reading_plan():
     topics = ["files", "loops", "tests"]
     session = {"topic": topics[1], "minutes": 20}
     tags = {"practice", "beginner", "practice"}
-    return topics[1], session["minutes"], len(tags), session.get("notes", "No notes")
+    return (
+        topics[1],
+        session["minutes"],
+        len(tags),
+        session.get("notes", "No notes"),
+    )
 
 
 def checklist(items):
     if not items:
         return "Nothing to pack."
-    return "\n".join(f"{number}. {item}" for number, item in enumerate(items, start=1))
+    return "\n".join(
+        f"{number}. {item}" for number, item in enumerate(items, start=1)
+    )
 
 
 def classify_with_data(path):
@@ -93,7 +101,9 @@ def fetch_with_daily_limit(url, limit):
 
 def render_with_count(records):
     count = sum(not row["done"] for row in records)
-    return render_page(records).replace("<ul>", f"<p>Open requests: {count}</p><ul>", 1)
+    return render_page(records).replace(
+        "<ul>", f"<p>Open requests: {count}</p><ul>", 1
+    )
 
 
 def parse_due_date(text):

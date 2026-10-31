@@ -35,13 +35,18 @@ def organise(source, destination, apply=False):
                 raise OSError("Source changed after planning")
             target = destination / relative
             target.parent.mkdir(exist_ok=True)
-            with original.open("rb") as incoming, target.open("xb") as outgoing:
+            with (
+                original.open("rb") as incoming,
+                target.open("xb") as outgoing,
+            ):
                 shutil.copyfileobj(incoming, outgoing)
     return [(path.name, relative.as_posix()) for path, relative in plans]
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Preview or copy grouped files")
+    parser = argparse.ArgumentParser(
+        description="Preview or copy grouped files"
+    )
     parser.add_argument("source", type=Path)
     parser.add_argument("destination", type=Path)
     parser.add_argument("--apply", action="store_true")

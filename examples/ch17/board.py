@@ -17,9 +17,16 @@ def load_requests(path):
         if not isinstance(row, dict):
             raise ValueError("Invalid request")
         identifier = row.get("id")
-        if type(identifier) is not int or identifier <= 0 or identifier in seen:
+        if (
+            type(identifier) is not int
+            or identifier <= 0
+            or identifier in seen
+        ):
             raise ValueError("IDs must be unique positive integers")
-        if not isinstance(row.get("title"), str) or not row["title"].strip():
+        if (
+            not isinstance(row.get("title"), str)
+            or not row["title"].strip()
+        ):
             raise ValueError("Title is required")
         if type(row.get("done")) is not bool:
             raise ValueError("Completion flag must be Boolean")
@@ -31,13 +38,17 @@ def render_page(records):
     items = []
     for row in records:
         status = "done" if row["done"] else "open"
-        items.append(f'<li>#{row["id"]} {escape(row["title"])} — {status}</li>')
+        items.append(
+            f"<li>#{row['id']} {escape(row['title'])} — {status}</li>"
+        )
     content = "".join(items) if items else "<li>No requests yet.</li>"
-    return ('<!doctype html><html lang="en"><meta charset="utf-8">'
-            '<meta name="viewport" content="width=device-width, initial-scale=1">'
-            '<title>Local request board</title><body><h1>Local request board</h1>'
-            '<p>Read-only view. Refresh after command-line updates.</p>'
-            f'<ul>{content}</ul></body></html>')
+    return (
+        '<!doctype html><html lang="en"><meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width, initial-scale=1">'
+        "<title>Local request board</title><body><h1>Local request board</h1>"
+        "<p>Read-only view. Refresh after command-line updates.</p>"
+        f"<ul>{content}</ul></body></html>"
+    )
 
 
 class BoardHandler(BaseHTTPRequestHandler):
@@ -63,13 +74,20 @@ class BoardHandler(BaseHTTPRequestHandler):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="View a local read-only request board")
+    parser = argparse.ArgumentParser(
+        description="View a local read-only request board"
+    )
     parser.add_argument("--data", type=Path, default=Path("requests.json"))
     parser.add_argument("--port", type=int, default=8766)
     args = parser.parse_args()
-    with ThreadingHTTPServer(("127.0.0.1", args.port), BoardHandler) as server:
+    with ThreadingHTTPServer(
+        ("127.0.0.1", args.port), BoardHandler
+    ) as server:
         server.data_path = args.data.resolve()
-        print(f"Local board: http://127.0.0.1:{server.server_port}/", flush=True)
+        print(
+            f"Local board: http://127.0.0.1:{server.server_port}/",
+            flush=True,
+        )
         try:
             server.serve_forever()
         except KeyboardInterrupt:

@@ -13,7 +13,10 @@ def load_plan(path):
     for record in records:
         if not isinstance(record, dict):
             raise ValueError("Each session must be a dictionary")
-        if not isinstance(record.get("topic"), str) or not record["topic"].strip():
+        if (
+            not isinstance(record.get("topic"), str)
+            or not record["topic"].strip()
+        ):
             raise ValueError("Each session needs a topic")
         if type(record.get("minutes")) is not int or record["minutes"] < 0:
             raise ValueError("Minutes must be nonnegative integers")

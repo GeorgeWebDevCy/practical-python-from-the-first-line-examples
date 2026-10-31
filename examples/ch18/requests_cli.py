@@ -9,8 +9,14 @@ from examples.ch17.board import load_requests
 def save_requests(path, records):
     temporary = None
     try:
-        with NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent,
-                                prefix=".requests-", suffix=".tmp", delete=False) as stream:
+        with NamedTemporaryFile(
+            mode="w",
+            encoding="utf-8",
+            dir=path.parent,
+            prefix=".requests-",
+            suffix=".tmp",
+            delete=False,
+        ) as stream:
             temporary = Path(stream.name)
             json.dump(records, stream, indent=2, ensure_ascii=False)
             stream.write("\n")
@@ -42,7 +48,9 @@ def complete_request(path, identifier):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Maintain a local request list")
+    parser = argparse.ArgumentParser(
+        description="Maintain a local request list"
+    )
     parser.add_argument("--data", type=Path, default=Path("requests.json"))
     commands = parser.add_subparsers(dest="command", required=True)
     add = commands.add_parser("add")
@@ -64,7 +72,7 @@ def main():
                 print("No requests yet.")
             for row in records:
                 status = "done" if row["done"] else "open"
-                print(f'#{row["id"]} [{status}] {row["title"]}')
+                print(f"#{row['id']} [{status}] {row['title']}")
     except (OSError, ValueError) as error:
         parser.exit(1, f"Cannot update requests: {error}\n")
 
