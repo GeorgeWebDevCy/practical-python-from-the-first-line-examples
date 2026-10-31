@@ -93,3 +93,9 @@ guide](https://developers.openai.com/api/docs/guides/structured-outputs).
 Model access, prices and account limits can change; check the official platform
 before a live run. Output limits constrain generated tokens, not the entire
 bill. Review results as suggestions, not verified facts or completed work.
+
+For interactive private input, run `python -m examples.ch21.live_launcher`
+from a real terminal at the repository root. It prompts for a key with hidden
+input and then a model identifier. It stops if hidden input is unavailable.
+The values are passed only in the child process environment, not command-line
+arguments. The launched live GUI still requires its goal-send confirmation.
