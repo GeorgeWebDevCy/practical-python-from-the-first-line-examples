@@ -8,6 +8,8 @@ import subprocess
 import sys
 import unittest
 
+from examples.verification import run_case
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -34,14 +36,7 @@ class ChapterTests(unittest.TestCase):
         cases = json.loads((ROOT / "examples/cases.json").read_text(encoding="utf-8"))["cases"]
         for case in cases:
             with self.subTest(script=case["script"]):
-                result = subprocess.run(
-                    [sys.executable, str(ROOT / case["script"])],
-                    input=case.get("stdin", ""), capture_output=True,
-                    text=True, cwd=ROOT, timeout=10,
-                )
-                self.assertEqual(result.returncode, 0, result.stderr)
-                self.assertEqual(result.stdout, case["stdout"])
-                self.assertEqual(result.stderr, "")
+                run_case(case)
 
     def test_trip_changed_distance(self):
         self.assertEqual(run_changed("examples/ch02/trip.py", "distance_km = 18", "distance_km = 24"),

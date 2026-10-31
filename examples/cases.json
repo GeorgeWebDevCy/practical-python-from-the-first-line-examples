@@ -6,6 +6,16 @@
     {"chapter": 5, "script": "examples/ch05/collections.py", "stdout": "First topic: files\nLast topic: functions\nDuration: 30 minutes\nUnique tags: 2\nStart: 09:30\n"},
     {"chapter": 6, "script": "examples/ch06/weekly.py", "stdout": "Session 1: 15 minutes\nSession 2: 20 minutes\nSession 3: 10 minutes\nWeekly total: 45 minutes\nCountdown: 3\nCountdown: 2\nCountdown: 1\n"},
     {"chapter": 7, "script": "examples/ch07/travel.py", "stdout": "Estimated minutes: 90\n"},
-    {"chapter": 8, "script": "examples/ch08/durations.py", "stdout": "' 25 ': 25 minutes\n'0': 0 minutes\n'-2': enter a nonnegative whole number\n'many': enter a nonnegative whole number\n"}
+    {"chapter": 8, "script": "examples/ch08/durations.py", "stdout": "' 25 ': 25 minutes\n'0': 0 minutes\n'-2': enter a nonnegative whole number\n'many': enter a nonnegative whole number\n"},
+    {"chapter": 9, "script": "examples/ch09/plan_store.py", "stdout": "Stored sessions: 1\nTotal minutes: 25\n"},
+    {"chapter": 10, "script": "examples/ch10/inventory.py", "stdout": "archive.zip -> other/archive.zip\nphoto.png -> images/photo.png\nreadme.TXT -> notes/readme.TXT\n"},
+    {"chapter": 11, "script": "examples/ch11/demo.py", "module": "examples.ch11.demo", "extra_sources": ["examples/toolkit/durations.py"], "stdout": "Session including break: 30 minutes\n"},
+    {"chapter": 12, "script": "examples/ch12/organise.py", "argv": ["inbox", "sorted-files"], "files": {"inbox/note.txt": "A practice note"}, "stdout": "Preview only:\nnote.txt -> notes/note.txt\n"},
+    {"chapter": 13, "script": "examples/ch13/report.py", "stdout": "materials: 15.00\ntravel: 3.00\nRejected rows: [5]\n"},
+    {"chapter": 14, "script": "examples/ch14/chart.py", "stdout": "Created costs.svg\n"},
+    {"chapter": 15, "script": "examples/ch15/lending.py", "stdout": "Field guide: available\nField guide: borrowed by Sam\nField guide: available\n"},
+    {"chapter": 16, "script": "examples/ch16/fetch.py", "argv": ["{fixture}/sessions"], "stdout": "Sessions received: 2\nTotal minutes: 45\n"},
+    {"chapter": 17, "script": "examples/ch17/board.py", "test_only": true},
+    {"chapter": 18, "script": "examples/ch18/requests_cli.py", "module": "examples.ch18.requests_cli", "argv": ["--data", "requests.json", "add", "Check the workshop inventory"], "stdout": "Added request #1\n"}
   ]
 }

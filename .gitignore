@@ -11,3 +11,8 @@ __pycache__/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Default outputs from reader experiments (fixtures live under tests/examples)
+/practice-plan.json
+/requests.json
+/costs.svg

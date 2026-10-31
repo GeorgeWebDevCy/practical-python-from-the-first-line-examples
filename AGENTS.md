@@ -15,4 +15,8 @@
 - On the author's workstation follow `C:/Users/georg/.codex/RTK.md` and prefix
   shell commands with `rtk` (use `rtk proxy` when needed).
 - Initial compatibility target: Python 3.11–3.14. Book scope and title remain
-  provisional. A setup example and Chapter 1 examples are available.
+  provisional. Runnable examples for all 18 first-draft chapters and reference
+  exercise behaviours are available. Documented command cases are in
+  `examples/cases.json`; `python -m examples.verification` executes them in
+  temporary directories. Chapter 17's long-running server is checked by the
+  live HTTP integration tests instead of a one-shot command expectation.
