@@ -1,8 +1,8 @@
 # Python Book — Code Examples
 
 Public companion code for George Nicolaou's Python book (working title).
-Chapter examples will be added as the book is written. The current example is
-a setup check, not a drafted chapter.
+Chapter examples are added as the book is written. Begin with the setup check,
+then [Chapter 1's saved programs](examples/ch01/README.md).
 
 Start with the [Windows, macOS and Linux setup guide](docs/setup.md).
 The initial compatibility target is Python 3.11–3.14. The book's final supported

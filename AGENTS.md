@@ -15,4 +15,4 @@
 - On the author's workstation follow `C:/Users/georg/.codex/RTK.md` and prefix
   shell commands with `rtk` (use `rtk proxy` when needed).
 - Initial compatibility target: Python 3.11–3.14. Book scope and title remain
-  provisional. Only a setup example exists so far.
+  provisional. A setup example and Chapter 1 examples are available.
