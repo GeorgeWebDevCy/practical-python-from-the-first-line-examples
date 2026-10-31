@@ -1,0 +1,11 @@
+{
+  "cases": [
+    {"chapter": 2, "script": "examples/ch02/trip.py", "stdout": "Destination: Harbour\nTravel minutes: 90\nIncluding stop: 100\n"},
+    {"chapter": 3, "script": "examples/ch03/session.py", "stdin": "Sam\n25\n", "stdout": "Your name: Practice minutes: Plan for Sam\nTotal including break: 30 minutes\n"},
+    {"chapter": 4, "script": "examples/ch04/choose.py", "stdout": "Complete a practice exercise.\n"},
+    {"chapter": 5, "script": "examples/ch05/collections.py", "stdout": "First topic: files\nLast topic: functions\nDuration: 30 minutes\nUnique tags: 2\nStart: 09:30\n"},
+    {"chapter": 6, "script": "examples/ch06/weekly.py", "stdout": "Session 1: 15 minutes\nSession 2: 20 minutes\nSession 3: 10 minutes\nWeekly total: 45 minutes\nCountdown: 3\nCountdown: 2\nCountdown: 1\n"},
+    {"chapter": 7, "script": "examples/ch07/travel.py", "stdout": "Estimated minutes: 90\n"},
+    {"chapter": 8, "script": "examples/ch08/durations.py", "stdout": "' 25 ': 25 minutes\n'0': 0 minutes\n'-2': enter a nonnegative whole number\n'many': enter a nonnegative whole number\n"}
+  ]
+}
